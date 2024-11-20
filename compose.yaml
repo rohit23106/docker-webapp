@@ -1,0 +1,16 @@
+---
+version: "3"
+services: 
+  backend:
+     container_name: devopsdb
+     build: "./Docker-db"
+     ports: 
+       - 3306:3306
+
+  frontend: 
+     container_name: app-cont
+     build: "./Docker-app"
+     ports: 
+       - 1234:8080
+     links:
+       - backend
